@@ -395,9 +395,9 @@ func CreateTarArchive(src, dest, compression string, verbose, debug bool) error 
 		dest,
 		".",
 	)
-	if debug {
-		tarCommand.Args = append(tarCommand.Args, "--verbose")
-	}
+	//if debug {
+	//	tarCommand.Args = append(tarCommand.Args, "--verbose")
+	//}
 	// set up any compression arguments
 	switch compression {
 	case "uncompressed":
@@ -438,9 +438,9 @@ func ExtractTarArchive(src, dest string, verbose, debug bool) error {
 		"--directory",
 		dest,
 	)
-	if debug {
-		tarCommand.Args = append(tarCommand.Args, "--verbose")
-	}
+	//if debug {
+	//	tarCommand.Args = append(tarCommand.Args, "--verbose")
+	//}
 	tarOutput := SetCommandOutput(&tarCommand, debug)
 	if err := tarCommand.Run(); err != nil {
 		return fmt.Errorf("Error running \"tar\" command \"%s\". "+
