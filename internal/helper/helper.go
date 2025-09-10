@@ -409,6 +409,7 @@ func CreateTarArchive(src, dest, compression string, debug bool) error {
 		tarCommand.Args = append(tarCommand.Args, "--gzip")
 	case "xz":
 		tarCommand.Args = append(tarCommand.Args, "--xz")
+		tarCommand.Env = append(tarCommand.Env, "XZ_OPT=\"-T0 -3\"")
 	case "zstd":
 		tarCommand.Args = append(tarCommand.Args, "--zstd")
 	default:
